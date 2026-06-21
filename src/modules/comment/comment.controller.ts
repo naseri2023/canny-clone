@@ -15,7 +15,7 @@ export const createComment = async (req: any, res: Response) => {
 };
 
 export const getComments = async (req: Request, res: Response) => {
-    const feedbackId = req.params.id;
+    const feedbackId = req.params.id as string;
 
     const comments = await getCommentsByFeedbackService(feedbackId);
 

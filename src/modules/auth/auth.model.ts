@@ -20,6 +20,13 @@ const userSchema = new Schema(
             required: true,
             select: false, // خیلی مهم: پسورد همیشه برنگرده
         },
+        resetPasswordToken: {
+            type: String,
+        },
+
+        resetPasswordExpires: {
+            type: Date,
+        },
     },
     {
         timestamps: true,

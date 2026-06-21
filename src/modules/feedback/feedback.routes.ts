@@ -8,14 +8,35 @@ import {validate} from "../../middlewares/validate";
 const router = Router();
 
 /**
- * @openapi
+ * @swagger
  * /feedback:
  *   post:
- *     tags:
- *       - Feedback
+ *     summary: Create feedback
+ *     tags: [Feedback]
  *     security:
  *       - bearerAuth: []
- *     summary: Create feedback
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - title
+ *               - body
+ *             properties:
+ *               title:
+ *                 type: string
+ *                 example: Dark Mode
+ *               body:
+ *                 type: string
+ *                 example: Please add dark mode feature
+ *               image:
+ *                 type: string
+ *                 example: https://example.com/image.png
+ *     responses:
+ *       201:
+ *         description: Feedback created
  */
 router.post("/", authMiddleware, validate(createFeedbackSchema), createFeedback);
 
