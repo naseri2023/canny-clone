@@ -1,12 +1,18 @@
 import mongoose, { Schema } from "mongoose";
 
-const voteSchema = new Schema(
+const commentSchema = new Schema(
     {
+        text: {
+            type: String,
+            required: true,
+        },
+
         userId: {
             type: Schema.Types.ObjectId,
             ref: "User",
             required: true,
         },
+
         feedbackId: {
             type: Schema.Types.ObjectId,
             ref: "Feedback",
@@ -18,7 +24,4 @@ const voteSchema = new Schema(
     }
 );
 
-// جلوگیری از duplicate vote
-voteSchema.index({ userId: 1, feedbackId: 1 }, { unique: true });
-
-export const Vote = mongoose.model("Vote", voteSchema);
+export const Comment = mongoose.model("Comment", commentSchema);

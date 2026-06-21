@@ -1,17 +1,26 @@
 import { Request, Response } from "express";
-import { signupUser } from "./auth.service";
+import { signupUser, signinUser } from "./auth.service";
+import {asyncHandler} from "../../utils/async-handler";
 
 export const signup = async (req: Request, res: Response) => {
     const { name, email, password } = req.body;
 
-    const user = await signupUser(name, email, password);
+    const result = await signupUser(name, email, password);
 
     res.status(201).json({
         success: true,
-        data: {
-            id: user._id,
-            name: user.name,
-            email: user.email,
-        },
+        data: result.user,
     });
 };
+
+export const signin = asyncHandler(async (req: Request, res: Response) => {
+    const { email, password } = req.body;
+
+    const result = await signinUser(email, password);
+
+    res.json({
+        success: true,
+        data: result,
+    });
+});
+
