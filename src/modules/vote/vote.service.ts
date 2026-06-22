@@ -28,7 +28,6 @@ export const toggleVoteService = async (
         return { voted: false };
     }
 
-    // اگر vote وجود نداشت → ایجاد
     await Vote.create({
         userId,
         feedbackId,

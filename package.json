@@ -10,7 +10,7 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier . --write",
     "test": "jest",
-    "start": "tsx app.ts"
+    "start": "tsx src/app.ts"
   },
   "keywords": [],
   "author": "",
