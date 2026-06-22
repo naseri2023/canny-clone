@@ -64,7 +64,7 @@ router.post("/signup", validate(signupSchema), signup);
 router.post("/signin", validate(signinSchema), signin);
 
 /**
- * @swagger
+ * @openapi
  * /auth/forgot-password:
  *   post:
  *     tags:
@@ -92,7 +92,7 @@ router.post(
 );
 
 /**
- * @swagger
+ * @openapi
  * /auth/reset-password:
  *   post:
  *     tags:

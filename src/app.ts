@@ -9,10 +9,11 @@ import { swaggerSpec } from "./config/swagger";
 const app = express();
 
 app.use(express.json());
+
 app.use(httpLogger);
-app.use("/api/v1", routes);
-app.use(errorMiddleware);
 app.use(performanceLogger);
+app.use("/api/v1", routes);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use(errorMiddleware);
 
 export default app;

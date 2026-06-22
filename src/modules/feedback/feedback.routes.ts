@@ -8,7 +8,7 @@ import {validate} from "../../middlewares/validate";
 const router = Router();
 
 /**
- * @swagger
+ * @openapi
  * /feedback:
  *   post:
  *     summary: Create feedback
